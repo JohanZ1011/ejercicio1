@@ -1,0 +1,109 @@
+<div class="container">
+  
+    <div class="row">
+  
+    <div class="col-12 col-md-8 col-lg-8">
+        <table class="table table-bordered table-dark">
+            <thead>
+                <br>
+                <br>
+                <br>
+              <h1>Local</h1>
+                <tr>
+                 <th scope="col">Dueño</th>
+                  <th scope="col">Local</th>
+                 <th scope="col">Botones</th>
+                </tr>
+                
+            </thead>
+            <tbody>
+                {{#each local}}
+    <tr>
+      <th scope="row">{{nombre}}</th>
+      <td>{{numero}}</td> 
+      <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{id_local}}">
+                        eliminar
+                        </button>
+                          <div class="modal fade" id="exampleModal{{id_local}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 style="color:red" class="modal-title" id="exampleModalLabel">eliminar</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div style="color:blue;" class="modal-body">
+                                    desea eliminar el {{numero}}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
+                                    <a href="/local/eliminar/{{id_local}}" class="btn btn-danger">eliminar</a>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                      
+
+                             <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modificarusuario{{id_local}}">
+                        modificar
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="modificarusuario{{id_local}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <form method="POST" action="/local/modificar/{{id_local}}">
+                                    <div class="modal-header">
+                                        <h5 style="color:red" class="modal-title" id="exampleModalLabel">modificar</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div style="color:blue;" class="modal-body">
+                                    
+
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">numero</label>
+                                                <input type="text" value="{{numero}}" class="form-control" name="numero" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="numero">
+                                            </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
+                                        <button type="submit" class="btn btn-primary">modificar</button>
+                                    </div>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                        </td>
+                        </td>
+           
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        
+    </div>
+    
+    <div class="col-12 col-md- col-lg-4">
+        <form method="POST" action="/local/agregar">
+                <h1>Local</h1>
+            <div class="form-group">
+                <label for="exampleInputEmail1">numero</label>
+                <input type="text" class="form-control" name="numero" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="numero">
+            </div>
+
+         <input type="hidden" class="form-control" name="id_local" id="exampleInputEmail1" aria-describedby="emailHelp">
+ 
+            <button type="submit" class="btn btn-primary">Agregar</button>
+        </form>
+    </div>
+        
+</div>
+<br>
+      </div>
+    </form>
+  </body>
+</html>

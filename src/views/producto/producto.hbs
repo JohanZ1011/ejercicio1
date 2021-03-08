@@ -1,0 +1,121 @@
+<div class="container">
+  
+    <div class="row">
+  
+    <div class="col-12 col-md-8 col-lg-8">
+        <table class="table table-bordered table-dark">
+            <thead>
+                <br>
+                <br>
+                <br>
+              <h1>producto</h1>
+                <tr>
+                 <th scope="col">ID</th>
+                 <th scope="col">nombre</th>
+                 <th scope="col">precio</th>
+                 <th scope="col">Botones</th>
+                </tr>
+                
+            </thead>
+            <tbody>
+                {{#each producto}}
+    <tr>
+      <th scope="row">{{id_producto}}</th>
+      <td>{{producto}}</td>
+      <td>{{precio}}</td>
+      <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{id_producto}}">
+                        eliminar
+                        </button>
+                          <div class="modal fade" id="exampleModal{{id_producto}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 style="color:red" class="modal-title" id="exampleModalLabel">eliminar</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div style="color:blue;" class="modal-body">
+                                    desea eliminar usuario {{producto}}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
+                                    <a href="/producto/eliminar/{{id_producto}}" class="btn btn-danger">eliminar</a>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                      
+
+                             <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modificarusuario{{id_producto}}">
+                        modificar
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="modificarusuario{{id_producto}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <form method="POST" action="/producto/modificar/{{id_producto}}">
+                                    <div class="modal-header">
+                                        <h5 style="color:red" class="modal-title" id="exampleModalLabel">modificar</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div style="color:blue;" class="modal-body">
+                                    
+
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Nombre</label>
+                                                <input type="text" value="{{producto}}" class="form-control" name="producto" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="nombre">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">precio</label>
+                                                <input type="text" value="{{precio}}" class="form-control" name="precio" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="precio">
+                                            </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
+                                        <button type="submit" class="btn btn-primary">modificar</button>
+                                    </div>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                        </td>
+                        </td>
+           
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        
+    </div>
+    
+    <div class="col-12 col-md- col-lg-4">
+        <form method="POST" action="/producto/agregar">
+<h1>producto</h1>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Nombre</label>
+                <input type="text" class="form-control" name="producto" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="producto">
+            </div>
+
+         <input type="hidden" class="form-control" name="id_producto" id="exampleInputEmail1" aria-describedby="emailHelp">
+ 
+             <div class="form-group">
+                <label for="exampleInputEmail1">precio</label>
+                <input type="text" class="form-control" name="precio" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="precio">
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Agregar</button>
+        </form>
+    </div>
+        
+</div>
+<br>
+      </div>
+    </form>
+  </body>
+</html>

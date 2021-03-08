@@ -1,0 +1,222 @@
+<div class="container">
+  
+    <div class="row">
+  
+    <div class="col-12 col-md-8 col-lg-8">
+        <table class="table table-bordered table-dark">
+            <thead>
+                <br>
+                <br>
+                <br>
+              <h1>mision</h1>
+                <tr>
+                 <th scope="col">ID</th>
+                 <th scope="col">vision</th>
+                 <th scope="col">Botones</th>
+                </tr>
+                
+            </thead>
+            <tbody>
+                {{#each mivi}}
+    <tr>
+      <th scope="row">{{id_mivi}}</th>
+      <td>{{mision}}</td> 
+      <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{id_mivi}}">
+                        eliminar
+                        </button>
+                          <div class="modal fade" id="exampleModal{{id_mivi}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 style="color:red" class="modal-title" id="exampleModalLabel">eliminar</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div style="color:blue;" class="modal-body">
+                                    desea eliminar la vision {{mivi}}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
+                                    <a href="/mivi/eliminar/{{id_mivi}}" class="btn btn-danger">eliminar</a>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                      
+
+                             <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modificarusuario{{id_mivi}}">
+                        modificar
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="modificarusuario{{id_mivi}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <form method="POST" action="/mivi/modificar/{{id_mivi}}">
+                                    <div class="modal-header">
+                                        <h5 style="color:red" class="modal-title" id="exampleModalLabel">modificar</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div style="color:blue;" class="modal-body">
+                                    
+
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">mision</label>
+                                                <input type="text" value="{{mision}}" class="form-control" name="mision" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="mision">
+                                            </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
+                                        <button type="submit" class="btn btn-primary">modificar</button>
+                                    </div>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                        </td>
+                        </td>
+           
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        
+    </div>
+    
+    <div class="col-12 col-md- col-lg-4">
+        <form method="POST" action="/mivi/agregar">
+<h1>mision</h1>
+            <div class="form-group">
+                <label for="exampleInputEmail1">mision</label>
+                <input type="text" class="form-control" name="mision" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="mision">
+            </div>
+
+         <input type="hidden" class="form-control" name="id_mivi" id="exampleInputEmail1" aria-describedby="emailHelp">
+ 
+            <button type="submit" class="btn btn-primary">Agregar</button>
+        </form>
+    </div>
+        
+</div>
+<br>
+      </div>
+    </form>
+  </body>
+</html>
+<br>
+<br>
+<br>
+<div class="container">
+  
+    <div class="row">
+  
+    <div class="col-12 col-md-8 col-lg-8">
+        <table class="table table-bordered table-dark">
+            <thead>
+                <br>
+                <br>
+                <br>
+              <h1>vision</h1>
+                <tr>
+                 <th scope="col">ID</th>
+                 <th scope="col">vision</th>
+                 <th scope="col">Botones</th>
+                </tr>
+                
+            </thead>
+            <tbody>
+                {{#each vision}}
+                
+    <tr>
+      <th scope="row">{{id_mivi}}</th>
+      <td>{{vision}}</td> 
+      <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{id_mivi}}">
+                        eliminar
+                        </button>
+                          <div class="modal fade" id="exampleModal{{id_mivi}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 style="color:red" class="modal-title" id="exampleModalLabel">eliminar</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div style="color:blue;" class="modal-body">
+                                    desea eliminar la vision {{mivi}}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
+                                    <a href="/mivi/eliminar/{{id_mivi}}" class="btn btn-danger">eliminar</a>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                      
+
+                             <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modificarusuario{{id_mivi}}">
+                        modificar
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="modificarusuario{{id_mivi}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <form method="POST" action="/mivi/modificar/{{id_mivi}}">
+                                    <div class="modal-header">
+                                        <h5 style="color:red" class="modal-title" id="exampleModalLabel">modificar</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div style="color:blue;" class="modal-body">
+                                    
+
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">vision</label>
+                                                <input type="text" value="{{vision}}" class="form-control" name="vision" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="vision">
+                                            </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
+                                        <button type="submit" class="btn btn-primary">modificar</button>
+                                    </div>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                        </td>
+                        </td>
+           
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        
+    </div>
+    
+    <div class="col-12 col-md- col-lg-4">
+        <form method="POST" action="/mivi/agregar">
+<h1>vision</h1>
+            <div class="form-group">
+                <label for="exampleInputEmail1">vision</label>
+                <input type="text" class="form-control" name="vision" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="vision">
+            </div>
+
+         <input type="hidden" class="form-control" name="id_mivi" id="exampleInputEmail1" aria-describedby="emailHelp">
+ 
+            <button type="submit" class="btn btn-primary">Agregar</button>
+        </form>
+    </div>
+        
+</div>
+<br>
+      </div>
+    </form>
+  </body>
+</html>

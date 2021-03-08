@@ -1,0 +1,111 @@
+<div class="container">
+  
+    <div class="row">
+  
+    <div class="col-12 col-md-8 col-lg-8">
+        <table class="table table-bordered table-dark">
+            <thead>
+                <br>
+                <br>
+                <br>
+              <h1>Facebook</h1>
+                <tr>
+                 <th scope="col">Dueño De La Publicidad</th>
+                 <th scope="col">Publicidad</th>
+                 <th scope="col">Fecha Vencimiento</th>
+                 <th scope="col">Botones</th>
+                </tr>
+                
+            </thead>
+            <tbody>
+                {{#each redes}}
+    <tr>
+      <th scope="row">{{nombre}}</th>
+      <td>{{redes}}</td> 
+      <td>{{vence}}</td> 
+      <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{id_redes}}">
+                        eliminar
+                        </button>
+                          <div class="modal fade" id="exampleModal{{id_redes}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 style="color:red" class="modal-title" id="exampleModalLabel">eliminar</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div style="color:blue;" class="modal-body">
+                                    desea eliminar la vision {{redes}}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
+                                    <a href="/redes/eliminar/{{id_redes}}" class="btn btn-danger">eliminar</a>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                      
+
+                             <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modificarusuario{{id_redes}}">
+                        modificar
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="modificarusuario{{id_redes}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <form method="POST" action="/redes/modificar/{{id_redes}}">
+                                    <div class="modal-header">
+                                        <h5 style="color:red" class="modal-title" id="exampleModalLabel">modificar</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div style="color:blue;" class="modal-body">
+                                    
+
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">redes</label>
+                                                <input type="text" value="{{redes}}" class="form-control" name="redes" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="redes">
+                                            </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
+                                        <button type="submit" class="btn btn-primary">modificar</button>
+                                    </div>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                        </td>
+                        </td>
+           
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        
+    </div>
+    
+    <div class="col-12 col-md- col-lg-4">
+        <form method="POST" action="/redes/agregar">
+<h1>Facebook</h1>
+            <div class="form-group">
+                <label for="exampleInputEmail1">redes</label>
+                <input type="text" class="form-control" name="redes" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="redes">
+            </div>
+
+         <input type="hidden" class="form-control" name="id_redes" id="exampleInputEmail1" aria-describedby="emailHelp">
+ 
+            <button type="submit" class="btn btn-primary">Agregar</button>
+        </form>
+    </div>
+        
+</div>
+<br>
+      </div>
+    </form>
+  </body>
+</html>

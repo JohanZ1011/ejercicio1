@@ -1,0 +1,134 @@
+<div class="container">
+  
+    <div class="row">
+  
+    <div class="col-12 col-md-8 col-lg-8">
+        <table class="table table-bordered table-dark">
+            <thead>
+                <br>
+                <br>
+                <br>
+              <h1>noticia</h1>
+                <tr>
+                 <th scope="col">ID</th>
+                 <th scope="col">Equipo</th>
+                 <th scope="col">Equipo</th>
+                 <th scope="col">Resultado</th>
+                 <th scope="col">Botones</th>
+                </tr>
+                
+            </thead>
+            <tbody>
+                {{#each noticia}}
+    <tr>
+      <th scope="row">{{id_noticia}}</th>
+      <td>{{nombre}}</td>
+      <td>{{nombre1}}</td>
+      <td>{{resultado}}</td> 
+      <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{id_noticia}}">
+                        eliminar
+                        </button>
+                          <div class="modal fade" id="exampleModal{{id_noticia}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 style="color:red" class="modal-title" id="exampleModalLabel">eliminar</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div style="color:blue;" class="modal-body">
+                                    desea eliminar usuario {{numero}} y {{numero1}}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
+                                    <a href="/noticia/eliminar/{{id_noticia}}" class="btn btn-danger">eliminar</a>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                      
+
+                             <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modificarusuario{{id_noticia}}">
+                        modificar
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="modificarusuario{{id_noticia}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <form method="POST" action="/noticia/modificar/{{id_noticia}}">
+                                    <div class="modal-header">
+                                        <h5 style="color:red" class="modal-title" id="exampleModalLabel">modificar</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div style="color:blue;" class="modal-body">
+                                    
+
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">equipo</label>
+                                                <input type="text" value="{{nombre}}" class="form-control" name="nombre" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="nombre">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">equipo</label>
+                                                <input type="text" value="{{nombre1}}" class="form-control" name="nombre1" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="nombre1">
+                                            </div>
+
+                                            
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">resultado</label>
+                                                <input type="text" value="{{resultado}}" class="form-control" name="resultado" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="resultado">
+                                            </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
+                                        <button type="submit" class="btn btn-primary">modificar</button>
+                                    </div>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                        </td>
+                        </td>
+           
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        
+    </div>
+    
+    <div class="col-12 col-md- col-lg-4">
+        <form method="POST" action="/noticia/agregar">
+<h1>noticia</h1>
+            <div class="form-group">
+                <label for="exampleInputEmail1">equipo1</label>
+                <input type="text" class="form-control" name="nombre" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="nombre">
+            </div>
+
+         <input type="hidden" class="form-control" name="id_noticia" id="exampleInputEmail1" aria-describedby="emailHelp">
+ 
+             <div class="form-group">
+                <label for="exampleInputEmail1">equipo2</label>
+                <input type="text" class="form-control" name="nombre1" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="nombre1">
+            </div>
+            
+             <div class="form-group">
+                <label for="exampleInputEmail1">resultado</label>
+                <input type="text" class="form-control" name="resultado" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="resultado">
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Agregar</button>
+        </form>
+    </div>
+        
+</div>
+<br>
+      </div>
+    </form>
+  </body>
+</html>
